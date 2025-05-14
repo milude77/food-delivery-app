@@ -1,0 +1,13 @@
+/* 默认样式 */
+body {
+  background-color: white;
+  color: black;
+  transition: background-color 1s ease;
+}
+
+/* 暗黑模式 */
+[data-theme='dark'] body {
+  background-color: #121212;
+  color: white;
+  transition: background-color 1s ease;
+}

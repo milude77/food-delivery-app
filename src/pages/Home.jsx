@@ -2,6 +2,7 @@ import React from 'react';
 import RestaurantList from '../components/RestaurantList';
 import Cart from '../components/Cart';
 import FunctionalMenu from '../components/FunctionMenu';
+import '../css/Home.css'
 
 
 const Home = () => {

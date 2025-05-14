@@ -1,7 +1,14 @@
 /* 主容器 */
-ul  {
+ul.main-menu {
   padding-left: 0;
   list-style: none;
+  margin: 0;
+}
+
+ul.sub-menu {
+  font-size: 14px;
+  list-style: none;
+  text-align: center;
   margin: 0;
 }
 
@@ -21,6 +28,7 @@ ul  {
 }
 
 .menu-container {
+  position: relative; 
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -30,8 +38,8 @@ ul  {
 
 /* 主菜单项 */
 .menu-header {
+  color: white;
   background-color: #1e90ff; /* 蓝底 */
-  color: white;             /* 白字 */
   padding: 20px 20px;
   margin: 5px 0;
   border-radius: 4px;
@@ -40,6 +48,10 @@ ul  {
   transition: background-color 0.5s;
 }
 
+.menu-header.active {
+  color: #333;
+  background-color: #187bcd;
+}
 .menu-header:hover {
   background-color: #187bcd; /* 悬停时深蓝色 */
 }
@@ -48,25 +60,37 @@ ul  {
 .sub-menu {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 1s ease-in-out;
-  padding: 0 15px;
+  transition: max-height 1s ease;
+  padding: 0;
 }
 
 .sub-menu.open {
-  max-height: var(--actual-height); /* 子菜单最大高度 */
-  transition: max-height 1s ;
+  max-height: 500px; /* 子菜单最大高度 */
+  transition: max-height 1s ease;
 }
 
 .sub-item {
-  background-color: #acd4fc; /* 浅蓝色背景 */
-  color: #333;
-  padding: 8px 15px;
-  margin: 3px 0;
+  background-color: #1e90ff; /* 浅蓝色背景 */
+  color: white;
+  padding:15px;
+  border-left: #333 solid 3px;
+  border-bottom: #333 solid 1.5px;
   border-radius: 3px;
   border-left: 3px solid #1e90ff;
   transition: all 0.2s;
 }
 
 .sub-item:hover {
-  background-color: #d4e6f7; /* 悬停时稍深的浅蓝 */
+  background-color: #2381d8; /* 悬停时稍深的浅蓝 */
+}
+
+.change-theme-btn{
+  position: absolute;
+  bottom: 20px;          /* 距离底部 20px，可调整 */
+  left: 50%;             /* 水平居中点 */
+  transform: translateX(-50%);  /* 向左偏移自身宽度一半，达到居中 */
+  padding: 10px 20px;
+  background-color: #eee;
+  border: none;
+  border-radius: 6px;
 }

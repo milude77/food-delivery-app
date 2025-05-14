@@ -1,10 +1,28 @@
 import React, { useState } from 'react';
 import '../css/FunctionalMenu.css'; // 样式文件
-import { FaChevronRight } from "react-icons/fa";
+import { FaChevronRight,FaSun, FaMoon } from "react-icons/fa";
+import { useTheme } from '../ThemeContext';
+
+
+const ThemeToggleButton = () => {
+  const { isDarkMode, toggleTheme } = useTheme();
+  
+  return (
+    <button style={{background: isDarkMode ? '#333' : '#fff'}} onClick={toggleTheme}>
+      {isDarkMode ? <FaSun size={24} color="#FFA500" /> : <FaMoon size={24} color="#333" />}
+    </button>
+  );
+};
 
 const FunctionalMenu = () => {
+
   // 菜单数据
   const menuData = [
+    {
+      id: 0,
+      title: '推荐',
+      subItems:[]
+    },
     {
       id: 1,
       title: '美食外卖',
@@ -12,12 +30,12 @@ const FunctionalMenu = () => {
     },
     {
       id: 2,
-      title: '鲜花',
+      title: '礼物鲜花',
       subItems: ['玫瑰花', '百合花', '康乃馨', '向日葵']
     },
     {
       id: 3,
-      title: '药品',
+      title: '药品健康',
       subItems: ['感冒药', '退烧药', '肠胃药', '维生素']
     }
   ];
@@ -38,8 +56,8 @@ const FunctionalMenu = () => {
           <li key={menu.id} className="menu-item">
             {/* 主菜单项（蓝底白字） */}
             <div 
-              className="menu-header" 
               onClick={() => toggleSubMenu(menu.id)}
+              className={`menu-header ${expandedMenu === menu.id ? 'active':''}`}
             >
               <span>{menu.title}</span>
               <span className={`arrow ${expandedMenu === menu.id ? 'expanded':''}`}>
@@ -60,7 +78,11 @@ const FunctionalMenu = () => {
           </li>
         ))}
       </ul>
+      <div className="change-theme-btn">
+        <ThemeToggleButton />
+      </div>
     </div>
+
   );
 };
 
