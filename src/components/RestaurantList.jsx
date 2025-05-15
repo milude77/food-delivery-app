@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { filterByCuisine, selectRestaurant } from '../features/restaurantSlice';
 import FoodItem from './FoodItem';
+import '../css/RestaurantList.css'
 
 const RestaurantList = () => {
   const { restaurants, filteredRestaurants, selectedRestaurant } = useSelector((state) => state.restaurants);
@@ -8,46 +9,40 @@ const RestaurantList = () => {
   const displayRestaurants = filteredRestaurants.length > 0 ? filteredRestaurants : restaurants;
 
   // 模拟商家的菜品数据
-  const mockFoods = [
-    { id: 1, name: '北京烤鸭', price: 98, description: '传统京味烤鸭', restaurantId: 1 },
-    { id: 2, name: '宫保鸡丁', price: 38, description: '经典川菜', restaurantId: 1 },
-    { id: 3, name: '意大利面', price: 48, description: '番茄肉酱意面', restaurantId: 2 },
-    { id: 4, name: '提拉米苏', price: 28, description: '意式甜点', restaurantId: 2 },
+  const StoreList = [
+    { id: 1, name: '一家堵上厨师生涯的蛋炒饭', score:4.5 ,salesvolume:200,distance:2 },
+    { id: 2, name: '叫了个熏鸡', score:4.5 ,salesvolume:200,distance:2 },
+    { id: 3, name: '海鲜烧烤', score:4.5 ,salesvolume:200,distance:2 },
+    { id: 4, name: '过桥米线', score:4.5 ,salesvolume:200,distance:2 },
+    { id: 2, name: '叫了个熏鸡', score:4.5 ,salesvolume:200,distance:2 },
+    { id: 2, name: '叫了个熏鸡', score:4.5 ,salesvolume:200,distance:2 },
+    { id: 2, name: '叫了个熏鸡', score:4.5 ,salesvolume:200,distance:2 },
+    { id: 2, name: '叫了个熏鸡', score:4.5 ,salesvolume:200,distance:2 },
   ];
 
   return (
-    <div>
-      <h2>商家列表</h2>
-      <button onClick={() => dispatch(filterByCuisine('Chinese'))}>中餐</button>
-      <button onClick={() => dispatch(filterByCuisine('Italian'))}>意餐</button>
-
+    <div className="restaurant-list">
       {/* 商家列表 */}
-      {displayRestaurants.map((restaurant) => (
-        <div 
-          key={restaurant.id} 
-          onClick={() => dispatch(selectRestaurant(restaurant))}
-          style={{ 
-            margin: '10px', 
-            cursor: 'pointer',
-            backgroundColor: selectedRestaurant?.id === restaurant.id ? '#f0f0f0' : 'transparent' 
-          }}
-        >
-          <h3>{restaurant.name}</h3>
-          <p>菜系: {restaurant.cuisine}</p>
+      {StoreList.map((store)=>(
+        <div key={store.id} className="store">
+          <img src={`/assets/img/${'restaurant'+store.id.toString()}.jpg`} alt={store.name} className='store-icon' />
+          <div className="store-details">
+            <h4>{store.name}</h4>
+            <div style={{display:'flex',alignItems:'center'}}>
+              <div className="store-info">
+              <p>评分：{store.score}</p>
+              <p>销量：{store.salesvolume}</p>
+              <p>距离：{store.distance}</p>
+            </div>
+            <div className='food-display' style={{paddingLeft:'10px'}}>
+              <img src={`/assets/img/restaurant2.jpg`} alt={store.name} style={{width:'90px', height:'90px'}} />
+              <img src={`/assets/img/restaurant2.jpg`} alt={store.name} style={{width:'90px', height:'90px'}} />
+              <img src={`/assets/img/restaurant2.jpg`} alt={store.name} style={{width:'90px', height:'90px'}} />
+            </div>
+            </div>
+          </div>
         </div>
       ))}
-
-      {/* 选中商家的菜品列表 */}
-      {selectedRestaurant && (
-        <div style={{ marginTop: '20px' }}>
-          <h3>{selectedRestaurant.name} 的菜品</h3>
-          {mockFoods
-            .filter((food) => food.restaurantId === selectedRestaurant.id)
-            .map((food) => (
-              <FoodItem key={food.id} food={food} />
-            ))}
-        </div>
-      )}
     </div>
   );
 };

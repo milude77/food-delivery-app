@@ -29,6 +29,7 @@ ul.sub-menu {
 
 .menu-container {
   position: relative; 
+  background-color: inherit;
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -36,10 +37,11 @@ ul.sub-menu {
   height: 100%;
 }
 
+
 /* 主菜单项 */
 .menu-header {
   color: white;
-  background-color: #1e90ff; /* 蓝底 */
+  background-color: inherit; /* 蓝底 */
   padding: 20px 20px;
   margin: 5px 0;
   border-radius: 4px;
@@ -52,32 +54,37 @@ ul.sub-menu {
   color: #333;
   background-color: #187bcd;
 }
+
 .menu-header:hover {
   background-color: #187bcd; /* 悬停时深蓝色 */
 }
 
 /* 子菜单 */
 .sub-menu {
-  max-height: 0;
+  max-height: 20%;
   overflow: hidden;
   transition: max-height 1s ease;
   padding: 0;
 }
 
 .sub-menu.open {
-  max-height: 500px; /* 子菜单最大高度 */
+  max-height: 20%; /* 子菜单最大高度 */
   transition: max-height 1s ease;
 }
 
 .sub-item {
-  background-color: #1e90ff; /* 浅蓝色背景 */
+  background-color: #439ffa; /* 浅蓝色背景 */
   color: white;
   padding:15px;
-  border-left: #333 solid 3px;
   border-bottom: #333 solid 1.5px;
   border-radius: 3px;
-  border-left: 3px solid #1e90ff;
+
+  border-radius: 5px;
   transition: all 0.2s;
+}
+
+[data-theme='dark'] .sub-item {
+  background-color: #0e5aa5; /* 浅蓝色背景 */
 }
 
 .sub-item:hover {

@@ -4,7 +4,6 @@ import { addItem } from '../features/cartSlice';
 
 const FoodItem = ({ food }) => {
   const dispatch = useDispatch();
-
   return (
     <div style={{ 
       border: '1px solid #ddd', 

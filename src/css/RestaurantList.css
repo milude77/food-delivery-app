@@ -1,0 +1,57 @@
+.restaurant-list{
+    max-height: 100vh;
+    display: flex;
+    background-color: inherit;
+    flex-direction: column;
+    overflow-y: auto;
+    scrollbar-width: none;
+    transition: background-color 1s ease;
+    border-right: #121212 1px solid;
+    transition: border-right 1s ease;
+}
+
+[data-theme='dark'] .restaurant-list{
+    border-right: #f2f2f2 1px solid;
+    transition: border-right 1s ease;
+}
+
+.store{
+  background-color: white;
+  padding-top:10px;
+  padding-bottom: 10px;
+  height: 200px; /* 根据需要调整高度 */
+  display: flex;
+  margin-top: 10px;
+  align-items: flex-start; /* 根据需要调整对齐方式 */
+  border-radius: 10px;
+}
+
+[data-theme='dark'] .store{
+    background-color: #272727;
+    transition: background-color 1s ease;
+}
+
+
+.store-icon {
+  width: 160px; 
+  height: 160px; 
+  padding: 20px; 
+  background-color: #f2f2f2; 
+  border-radius: 20px; 
+  transition: background-color 1s ease;
+}
+
+
+[data-theme='dark'] .store-icon {
+    background-color:#121212; 
+    transition: background-color 1s ease;
+}
+
+.store-details {
+  margin-left: 10px; 
+}
+
+.store-info p {
+  margin: 0; 
+  line-height: 1.5; 
+}

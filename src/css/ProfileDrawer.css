@@ -1,0 +1,41 @@
+.profile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 300px;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  transform: translateX(300px); 
+  transition: transform 0.3s ease;
+}
+
+[data-theme='dark'] .profile-drawer {
+    background-color: #343a40;
+    color: white;
+}
+
+.profile-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-tab {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 100px;
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.drawer-content {
+  padding: 20px;
+}

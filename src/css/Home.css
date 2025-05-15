@@ -1,13 +1,23 @@
 /* 默认样式 */
 body {
-  background-color: white;
+  background-color: rgb(218, 217, 217);
   color: black;
   transition: background-color 1s ease;
 }
 
 /* 暗黑模式 */
 [data-theme='dark'] body {
-  background-color: #121212;
+  background-color: #0c0c0c;
   color: white;
+  transition: background-color 1s ease;
+}
+
+.menu-container{
+  background-color: #1e90ff;
+  transition: background-color 1s ease;
+}
+
+[data-theme='dark'] .menu-container{
+  background-color: #1667b8;
   transition: background-color 1s ease;
 }

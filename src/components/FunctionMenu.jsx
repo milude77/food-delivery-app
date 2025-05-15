@@ -37,7 +37,18 @@ const FunctionalMenu = () => {
       id: 3,
       title: '药品健康',
       subItems: ['感冒药', '退烧药', '肠胃药', '维生素']
+    },
+    {
+      id: 4,
+      title: '水果蔬菜',
+      subItems: ['水果', '蔬菜']
+    },
+    {
+      id: 5,
+      title: '超市便利',
+      subItems: ['日用百货', '超市购物', '便利店']
     }
+
   ];
 
 
