@@ -8,7 +8,7 @@ const ProfileDrawer = () => {
     <div className={`profile-drawer ${open ? 'open' : ''}`}>
       {/* 小按钮始终露出 */}
       <div className="drawer-tab" onClick={() => setOpen(!open)}>
-        {open ? '<' : '>'}
+        {open ? '>' : '<'}
       </div>
 
       {/* 个人信息内容 */}

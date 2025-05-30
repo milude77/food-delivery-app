@@ -1,3 +1,4 @@
+//菜单组件
 import React, { useState } from 'react';
 import '../css/FunctionalMenu.css'; // 样式文件
 import { FaChevronRight,FaSun, FaMoon } from "react-icons/fa";
@@ -14,13 +15,13 @@ const ThemeToggleButton = () => {
   );
 };
 
-const FunctionalMenu = () => {
+const FunctionalMenu = ({onSelect}) => {
 
   // 菜单数据
   const menuData = [
     {
       id: 0,
-      title: '推荐',
+      title: '全部',
       subItems:[]
     },
     {
@@ -54,11 +55,21 @@ const FunctionalMenu = () => {
 
   // 控制子菜单展开状态
   const [expandedMenu, setExpandedMenu] = useState(null);
+  const [selectedCuisine, setSelectedCuisine] = useState(null);
 
   // 切换子菜单显示
   const toggleSubMenu = (menuId) => {
+    if (menuId === 0) onSelect('全部')
     setExpandedMenu(expandedMenu === menuId ? null : menuId);
   };
+
+  // 选中菜系
+  const handleCuisineSelect = (cuisine) => {
+    onSelect(cuisine);
+    setSelectedCuisine(selectedCuisine === cuisine ? null : cuisine);
+  };
+
+
 
   return (
     <div className="menu-container">
@@ -77,15 +88,13 @@ const FunctionalMenu = () => {
             </div>
             
             {/* 子菜单（展开时显示） */}
-            {expandedMenu === menu.id && (
-              <ul className={`sub-menu ${expandedMenu === menu.id ? 'open':''}`}>
+              <ul className={`sub-menu ${expandedMenu === menu.id ? 'open':'off'}`}>
                 {menu.subItems.map((subItem, index) => (
-                  <li key={index} className="sub-item">
+                  <li key={index} className={`sub-item ${selectedCuisine === subItem ? 'active':''}`} onClick={(event) =>{event.stopPropagation();handleCuisineSelect(subItem)}}>
                     {subItem}
                   </li>
                 ))}
               </ul>
-            )}
           </li>
         ))}
       </ul>

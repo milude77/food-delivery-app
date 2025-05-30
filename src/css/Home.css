@@ -1,12 +1,15 @@
 /* 默认样式 */
-body {
+.home-container {
+  height: 100%;
+  width: 100%;
+  position: relative; 
   background-color: rgb(218, 217, 217);
   color: black;
   transition: background-color 1s ease;
 }
 
 /* 暗黑模式 */
-[data-theme='dark'] body {
+[data-theme='dark'] .home-container {
   background-color: #0c0c0c;
   color: white;
   transition: background-color 1s ease;
@@ -21,3 +24,67 @@ body {
   background-color: #1667b8;
   transition: background-color 1s ease;
 }
+
+.login-btn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #1e90ff;
+  transition: background-color 1s ease;
+}
+
+[data-theme='dark'] .login-btn{
+  color: inherit;
+  background-color: #1667b8;
+  transition: background-color 1s ease;
+}
+
+.product-container{
+  display: flex;
+  width: 30%;
+  transform: scale(1);
+  transform-origin: left;
+  transition: width 1s ease;
+}
+
+.product-container.show{
+  width: 45%;
+}
+
+.restaurant-list{
+    display: flex;
+    max-width: 0;
+    overflow: auto;
+    scrollbar-width:none;
+    background-color: inherit;
+    transform-origin: left;
+    transition: background-color 1s ease;
+    transition: max-width 1s ease;
+    border-right: #000000 1px solid;
+}
+
+[data-theme='dark'] .restaurant-list{
+    border-right: #ffffff 1px solid;
+}
+
+
+.restaurant-list.open{
+    max-width: 40%;
+    transform-origin: left;
+    transition: background-color 1s ease;
+    transition: max-width 1s ease;
+}
+
+
+.toggle-btn{
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  font-size: 16px;
+  background-color: inherit; 
+  padding: 0 10px;     
+  transition: background-color 1s ease;
+}
+
+

@@ -1,3 +1,5 @@
+//购物车组件
+
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, clearCart } from '../features/cartSlice';
 
